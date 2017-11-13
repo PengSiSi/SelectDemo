@@ -1,0 +1,18 @@
+PODS:
+  - Masonry (1.1.0)
+  - TTGTagCollectionView (1.6.1)
+  - WMPageController (2.4.3)
+
+DEPENDENCIES:
+  - Masonry
+  - TTGTagCollectionView
+  - WMPageController
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  TTGTagCollectionView: 828087136810b786ce8c30c89acf3877cccb0383
+  WMPageController: 4c7f2c636675a71aea5eecf8fdc07a0ce86954e3
+
+PODFILE CHECKSUM: 2b317e434740dd9315ef07f6609bc2ebf7f8e9f1
+
+COCOAPODS: 1.3.0.beta.1
