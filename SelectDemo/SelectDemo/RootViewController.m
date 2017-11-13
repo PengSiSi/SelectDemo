@@ -61,8 +61,8 @@
     _tagCollectionView.dataSource = self;
     [self.topView addSubview:_tagCollectionView];
     [_tagViews addObject:[self newViewWithTitle:@"脑科" textColor:[UIColor grayColor] fontSize:15 backgroundColor: [UIColor whiteColor] tipImage:nil hasDeleteFlag:NO]];
-     [_tagViews addObject:[self newViewWithTitle:@"神经外科" textColor:[UIColor grayColor] fontSize:15 backgroundColor: [UIColor whiteColor] tipImage:@"mine_collection_question_icon" hasDeleteFlag:YES]];
-     [_tagViews addObject:[self newViewWithTitle:@"内科内科内科内科" textColor:[UIColor grayColor] fontSize:15 backgroundColor: [UIColor whiteColor] tipImage:@"mine_collection_question_icon" hasDeleteFlag:YES]];
+    [_tagViews addObject:[self newViewWithTitle:@"神经外科" textColor:[UIColor grayColor] fontSize:15 backgroundColor: [UIColor whiteColor] tipImage:@"mine_collection_question_icon" hasDeleteFlag:YES]];
+    [_tagViews addObject:[self newViewWithTitle:@"内科内科内科内科" textColor:[UIColor grayColor] fontSize:15 backgroundColor: [UIColor whiteColor] tipImage:@"mine_collection_question_icon" hasDeleteFlag:YES]];
     [_tagCollectionView reload];
 }
 
@@ -82,8 +82,8 @@
 - (void)tagCollectionView:(TTGTagCollectionView *)tagCollectionView didSelectTag:(UIView *)tagView atIndex:(NSUInteger)index {
     NSLog(@"选中了。。。。");
     self.currentSelectTagIndex = index;
-//    [self.tagViews removeObjectAtIndex:index];
-//    [self.tagCollectionView reload];
+    //    [self.tagViews removeObjectAtIndex:index];
+    //    [self.tagCollectionView reload];
 }
 
 #pragma mark - TTGTagCollectionViewDataSource
@@ -134,7 +134,7 @@
         [containerView addSubview:delButton];
     }
     [self expandSizeForView:label extraWidth:20 extraHeight:16];
-
+    
     // 设置布局
     containerView.frame = CGRectMake(0, 0, label.frame.size.width, label.frame.size.height);
     if (flag) {
@@ -165,9 +165,10 @@
     NSLog(@"---个数---%ld",self.tagViews.count);
     
     // 点击删除并没有出发点击tag的代理方法。
-//    [self.tagViews removeObjectAtIndex:self.currentSelectTagIndex];
-//    [self.tagCollectionView reload];
-
+    //    [self.tagViews removeObjectAtIndex:self.currentSelectTagIndex];
+    //    [self.tagCollectionView reload];
+    
+    // 这里注意： 删除一个tagView之后，后面的tagView的tag值需要更新，否则会崩溃
     for (NSInteger i = self.lastDeleteSelectTagIndex; i < self.tagViews.count; i++) {
         UIView *subView = self.tagViews[i];
         subView.tag = subView.tag - 1;
@@ -186,3 +187,4 @@
 }
 
 @end
+
